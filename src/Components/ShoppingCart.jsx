@@ -26,9 +26,21 @@ const ShoppingCart = () => {
     <div className="shopping-cart">
       <h2 className="shopping-cart-title">Shopping Cart</h2>
       <ul className="cart-items">
-       
+       {cartItems.map((item)=>(
+        <li key={item.id} className="cart-item">
+            <span>{item.name} - ${item.price}</span>
+            <div className="quantity-controls">
+                <button onClick={()=>handleDecreaseQuantity(item.id)}>-</button>
+                <span>{item.quantity}</span>
+                <button onClick={()=>handleIncreaseQuantity(item.id)}>+</button>
+            </div>
+            <button className="remove-item-btn" onClick={()=>handleRemoveItem(item.id)}>Remove</button>
+        </li>
+       ))}
       </ul>
-      <button className="clear-cart-btn">Clear Cart</button>
+      <button className="clear-cart-btn" onClick={handleClearCart}>Clear Cart</button>
+      <div>{totalAmount? <div>Total Amount is: {totalAmount}</div>:'' }</div>
+
     </div>
   
     </>
