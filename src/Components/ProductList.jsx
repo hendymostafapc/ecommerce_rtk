@@ -25,7 +25,7 @@ const ProductList = () => {
         {products.map(product=>(
             <li key={product.id} className="product-list-item">
                 <span>{product.name}- ${product.price}</span>
-                <button className={`add-to-cart-button ${cartItems.some(item => item.id === product.id)}`}
+                <button className={`add-to-cart-button ${cartItems.some(item => item.id === product.id)?'disable':''}`}
                 onClick={()=> handleAddToCart(product)} disabled={cartItems.some(item => item.id === product.id)} >
                     {cartItems.some(item => item.id === product.id)?'Added':'Add to Cart'}
                     </button>
