@@ -6,7 +6,7 @@ import { addItemToCart } from './CartSlice';
 const ProductList = () => {
 
     const dispatch  = useDispatch();
-    const cartItems = useSelector(state.cart.cartItems);
+    const cartItems = useSelector(state => state.cart.cartItems);
 
   const products = [
     { id: 1, name: 'Product A', price: 60 },
